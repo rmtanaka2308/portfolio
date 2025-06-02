@@ -10,6 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }} suppressHydrationWarning>
+      <head>
+        <title>Ricardo Tanaka</title>
+        <meta name="description" content="My personal website built with Next.js" />
+      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <AppSidebar />
@@ -19,3 +23,4 @@ export default function RootLayout({
     </html>
   )
 }
+

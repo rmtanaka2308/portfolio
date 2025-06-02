@@ -2,18 +2,8 @@
 
 import type React from "react"
 
-import { Home, User, Briefcase, FolderOpen, Code, Mail } from "lucide-react"
-import {
-    Sidebar,
-    SidebarContent,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    SidebarHeader,
-    SidebarFooter,
-} from "@/components/ui/sidebar"
+import { Home, User, Briefcase, FolderOpen, Mail } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const menuItems = [
     {
@@ -37,11 +27,6 @@ const menuItems = [
         icon: FolderOpen,
     },
     {
-        title: "Skills",
-        url: "#skills",
-        icon: Code,
-    },
-    {
         title: "Contact",
         url: "#contact",
         icon: Mail,
@@ -61,41 +46,33 @@ const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: st
 
 export function AppSidebar() {
     return (
-        <Sidebar
-            collapsible="none"
-            className="w-16 border-r border-slate-200 dark:border-slate-700 fixed left-0 top-0 h-screen z-50"
-        >
-            <SidebarHeader className="p-3">
+        <div className="fixed left-0 top-0 h-screen w-16 z-50 border-r border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+
+
+            {/* Navigation Menu */}
+            <div className="flex-1 px-3 py-2">
+                <nav className="space-y-2">
+                    {menuItems.map((item) => (
+                        <div key={item.title} className="flex justify-center">
+                            <a
+                                href={item.url}
+                                onClick={(e) => handleSmoothScroll(e, item.url)}
+                                className="w-10 h-10 flex items-center justify-center transition-colors duration-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg group"
+                                title={item.title}
+                            >
+                                <item.icon className="w-5 h-5 text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-100" />
+                            </a>
+                        </div>
+                    ))}
+                </nav>
+            </div>
+
+            {/* Footer with Theme Toggle and Status */}
+            <div className="p-3 space-y-3">
                 <div className="flex justify-center">
-
+                    <ThemeToggle />
                 </div>
-            </SidebarHeader>
-
-            <SidebarContent>
-                <SidebarGroup>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            {menuItems.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild tooltip={item.title} className="w-10 h-10 p-0 mx-auto">
-                                        <a
-                                            href={item.url}
-                                            onClick={(e) => handleSmoothScroll(e, item.url)}
-                                            className="flex items-center justify-center transition-colors duration-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
-                                        >
-                                            <item.icon className="w-5 h-5" />
-                                        </a>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
-            </SidebarContent>
-
-            <SidebarFooter className="p-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full mx-auto" title="Online" />
-            </SidebarFooter>
-        </Sidebar>
+            </div>
+        </div>
     )
 }

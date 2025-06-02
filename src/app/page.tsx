@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+
 "use client"
 
 import { Button } from "@/components/ui/button"
@@ -110,7 +111,7 @@ export default function Home() {
         </section>
 
         {/* Work Experience Section */}
-        <section id="experience" className="container mx-auto px-4 py-16 bg-white/50 dark:bg-slate-800/50">
+        <section id="experience" className="container mx-auto px-4 py-16 ">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-slate-100">
               Work Experience
@@ -239,7 +240,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="container mx-auto px-4 py-16 bg-white/50 dark:bg-slate-800/50">
+        <section id="skills" className="container mx-auto px-4 py-16 ">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-slate-100">
               Skills & Technologies
@@ -289,7 +290,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="container mx-auto px-4 py-16 bg-white/50 dark:bg-slate-800/50">
+        <section id="contact" className="container mx-auto px-4 py-16 ">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-900 dark:text-slate-100">Let's Connect</h2>
 

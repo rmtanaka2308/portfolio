@@ -3,6 +3,11 @@ import "./globals.css"
 import { AppSidebar } from "@/components/NewSidebar"
 import { ThemeProvider } from "@/components/theme-provider"
 
+export const metadata = {
+  title: "Ricardo Tanaka | Portfolio",
+  description: "My personal website built with Next.js",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -10,10 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }} suppressHydrationWarning>
-      <head>
-        <title>Ricardo Tanaka</title>
-        <meta name="description" content="My personal website built with Next.js" />
-      </head>
+
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <AppSidebar />
@@ -24,3 +26,4 @@ export default function RootLayout({
   )
 }
 
+// src/app/layout.tsx
